@@ -5,28 +5,24 @@ def starting_gameboard():
     return table
 
 def instructions():
-    print("Let's play a game of tic tac toe.")
+    print("Take turns entering a number (1-9) to place your mark on the grid. The first player to get three in a row wins!")
     time.sleep(2)
     print("Player 1 is always X and Player 2 is always O.")
     time.sleep(2)
     print("The top left square is 1 and the bottom right square is 9.")
     time.sleep(2)
-    print("Example: if you are playing X, its your turn, and the bottom left square is open, say 7")
+    print("Example: If you want to play in the center AND the center is open AND it's your turn, say 5.")
 
 def tic_tac_toe():
     board = starting_gameboard()
     player = True #True for X, False for O
     player_num = 1
     turn = 0
-    win = "No"
     pos = 0
-    while win != "Yes":
+    while turn < 9:
         print(board[0])
         print(board[1])
         print(board[2])
-        if turn == 9:
-            print("This is a tied game.")
-            return
         if board[0][0] == board[0][1] == board[0][2] and board[0][0] != " ": #Top Row
             print("We have a winner.")
             if board[0][0] == "X":
@@ -113,7 +109,8 @@ def tic_tac_toe():
                 player = not player
                 player_num = 1
                 turn += 1
-
+    print("This is a tied game.")
+    return
 
 #instructions()
 tic_tac_toe()
